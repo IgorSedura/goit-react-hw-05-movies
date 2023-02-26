@@ -30,7 +30,7 @@ export const SearchForm = styled.form`
 export const SearchFormButton = styled.button`
   appearance: none;
   background-color: transparent;
-  border: 2px solid black;
+  border: 1px solid black;
   border-radius: 5px;
   box-sizing: border-box;
   color: #3b3b3b;

@@ -1,12 +1,14 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { getTrendingMovies } from 'Api';
 // import toast, { Toaster } from 'react-hot-toast';
 
 export const Home = () => {
-  //   const [movie, setMovie] = useState([]);
+  const [movies, setMovie] = useState([]);
   //   const [isLoding, setIsLoading] = useState(false);
   useEffect(() => {
-    getTrendingMovies().then(console.log);
+    getTrendingMovies().then(({ results }) => {
+      setMovie(results);
+    });
   }, []);
 
   //   useEffect(() => {
@@ -14,13 +16,22 @@ export const Home = () => {
   //       try {
   //         setIsLoading(true);
 
-  //         const { resulte } = await getTrendingMovies();
-  //         setMovie(resulte);
+  //         const { results } = await getTrendingMovies();
+  //         setMovie(results);
   //       } catch (error) {
   //         toast.error('Oops! Something went wrong! Please try again.');
   //       }
   //     }
   //   }, []);
 
-  return;
+  return (
+    <div>
+      <h1>Movie Trend</h1>
+      <ul>
+        {movies.map(movie => (
+          <li key={movie.id}> {movie.title || movie.name}</li>
+        ))}
+      </ul>
+    </div>
+  );
 };
