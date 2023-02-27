@@ -8,3 +8,10 @@ export const getTrendingMovies = async () => {
   const response = await axios.get(`3/trending/all/day?api_key=${API_KEY}`);
   return response.data;
 };
+
+export const fetchMovieDetails = async id => {
+  const responce = await axios.get(
+    `3/movie/${id}?api_key=${API_KEY}&language=en-US`
+  );
+  return responce.data;
+};

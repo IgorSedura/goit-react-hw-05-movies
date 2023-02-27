@@ -1,37 +1,41 @@
 import { useEffect, useState } from 'react';
 import { getTrendingMovies } from 'Api';
-// import toast, { Toaster } from 'react-hot-toast';
+import { Link } from 'react-router-dom';
+import toast, { Toaster } from 'react-hot-toast';
+import { Loader } from 'components/Loader/Loader';
 
 export const Home = () => {
   const [movies, setMovie] = useState([]);
-  //   const [isLoding, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
   useEffect(() => {
-    getTrendingMovies().then(({ results }) => {
-      setMovie(results);
-    });
+    async function getMovie() {
+      try {
+        setIsLoading(true);
+
+        const { results } = await getTrendingMovies();
+        setMovie(results);
+        setIsLoading(false);
+      } catch (error) {
+        toast.error('Oops! Something went wrong! Please try again.');
+      }
+    }
+    getMovie();
   }, []);
-
-  //   useEffect(() => {
-  //     async function getMovie() {
-  //       try {
-  //         setIsLoading(true);
-
-  //         const { results } = await getTrendingMovies();
-  //         setMovie(results);
-  //       } catch (error) {
-  //         toast.error('Oops! Something went wrong! Please try again.');
-  //       }
-  //     }
-  //   }, []);
 
   return (
     <div>
+      {isLoading && <Loader />}
       <h1>Movie Trend</h1>
       <ul>
         {movies.map(movie => (
-          <li key={movie.id}> {movie.title || movie.name}</li>
+          <li key={movie.id}>
+            <Link to={`/movies/${movie.id}`}>{movie.title ?? movie.name}</Link>
+          </li>
         ))}
       </ul>
+
+      <Toaster />
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { FiSearch } from 'react-icons/fi';
 import {
   SearchbarHeader,
@@ -35,6 +35,6 @@ export const SearchBar = () => {
   );
 };
 
-SearchBar.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-};
+// SearchBar.propTypes = {
+//   onSubmit: PropTypes.func.isRequired,
+// };
