@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
 import { getTrendingMovies } from 'Api';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
 import { Loader } from 'components/Loader/Loader';
 
-export const Home = () => {
+const Home = () => {
   const [movies, setMovie] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     async function getMovie() {
@@ -30,7 +31,9 @@ export const Home = () => {
       <ul>
         {movies.map(movie => (
           <li key={movie.id}>
-            <Link to={`/movies/${movie.id}`}>{movie.title ?? movie.name}</Link>
+            <Link state={{ from: location }} to={`/movies/${movie.id}`}>
+              {movie.title ?? movie.name}
+            </Link>
           </li>
         ))}
       </ul>
@@ -39,3 +42,5 @@ export const Home = () => {
     </div>
   );
 };
+
+export default Home;

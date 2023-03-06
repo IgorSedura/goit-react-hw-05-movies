@@ -1,6 +1,6 @@
 import { Header, Link } from './NavBarStyles';
 
-export const NavBar = () => {
+const NavBar = () => {
   return (
     <Header>
       <nav>
@@ -12,3 +12,5 @@ export const NavBar = () => {
     </Header>
   );
 };
+
+export default NavBar;

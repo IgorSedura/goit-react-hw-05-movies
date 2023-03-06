@@ -1,6 +1,7 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const NotFoundButton = styled.button`
+export const GoBackButton = styled(Link)`
   appearance: none;
   background-color: transparent;
   border: 2px solid black;
@@ -15,9 +16,10 @@ export const NotFoundButton = styled.button`
   font-weight: 600;
   line-height: normal;
   margin: 0;
-  min-height: 40px;
-  min-width: 150px;
+  min-height: 20px;
+  min-width: 80px;
   outline: none;
+  margin-bottom: 10px;
 
   text-align: center;
   text-decoration: none;
