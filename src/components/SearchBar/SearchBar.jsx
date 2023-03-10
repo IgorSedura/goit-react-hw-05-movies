@@ -1,4 +1,4 @@
-import { searchMovie } from 'Api';
+import { searchMovie } from 'services/Api';
 import { MovieList } from 'components/MovieList/MovieList';
 import { useState, useEffect } from 'react';
 import { FiSearch } from 'react-icons/fi';

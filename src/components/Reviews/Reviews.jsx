@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { toast } from 'react-hot-toast';
-import { getMovieReviews } from 'Api';
+import { getMovieReviews } from 'services/Api';
 import { Container } from './ReviewsStyles';
 
 const Reviews = () => {

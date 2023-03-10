@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
-import { fetchMovieDetails } from 'Api';
+import { fetchMovieDetails } from 'services/Api';
 import { Loader } from 'components/Loader/Loader';
 import { Button } from 'components/Button/Button';
 import {

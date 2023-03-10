@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { getMovieCredits } from 'Api';
+import { getMovieCredits } from 'services/Api';
 import { toast } from 'react-hot-toast';
 import { ActorList, ActorItem, Img } from './CastStyles';
 

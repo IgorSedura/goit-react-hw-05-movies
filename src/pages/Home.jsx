@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getTrendingMovies } from 'Api';
+import { getTrendingMovies } from 'services/Api';
 import { Link, useLocation } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
 import { Loader } from 'components/Loader/Loader';
